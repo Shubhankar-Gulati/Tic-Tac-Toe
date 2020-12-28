@@ -10,8 +10,10 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
-
-h4{
+p{
+	text-align: center;
+}
+h1{
 	text-align: center;
 }
 table {

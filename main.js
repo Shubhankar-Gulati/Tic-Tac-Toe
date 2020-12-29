@@ -2,6 +2,9 @@ $(document).ready(function () {
 
 	var move = 1;
 	var play = true;
+	var x=0;
+	var o=0;
+
 
 	$("#board tr td").click(function () {
 		if ($(this).text() == "" && play) {
@@ -16,17 +19,22 @@ $(document).ready(function () {
 			move++;
 			if (checkForWinner() != -1 && checkForWinner() != "") {
 				if (checkForWinner() == "X") {
-					$('body').append('<div class="winner"><span>Winner</span>X</div><button onclick="location.reload();" id="reload">Play Again</button>');
+					$('body').append('<div class="winner"><span>Winner</span>X</div><button onclick="abc()" id="reload">Play Again</button>');
 					$('.winner').css('background-color', '#00fc0f');
 					$('#reload').css('color','#00fc0f');
+					x++;
+					$("#board1 tr:nth-child(2) td:nth-child(1)").append(x)
+
 				} else if (checkForWinner() == "O"){
-					$('body').append('<div class="winner"><span>Winner</span>O</div><button onclick="location.reload();" id="reload">Play Again</button>');
+					$('body').append('<div class="winner"><span>Winner</span>O</div><button onclick="abc()" id="reload">Play Again</button>');
 					$('.winner').css('background-color', '#fc0000');
 					$('#reload').css('color','#fc0000');
+					o++;
+					$("#board1 tr:nth-child(2) td:nth-child(2)").append(o)
 				}
 			}
 			else if (checkForWinner() == false  && move==10){
-				$('body').append('<div class="winner"><span>No Winner</span>TIE</div><button onclick="location.reload();" id="reload">Play Again</button>');
+				$('body').append('<div class="winner"><span>No Winner</span>TIE</div><button onclick="abc();" id="reload">Play Again</button>');
 				$('.winner').css('background-color', '#124df8');
 				$('#reload').css('color','#124df8');
 
@@ -67,6 +75,21 @@ $(document).ready(function () {
 		else{
 			return false;
 		}
+
+	}
+	function abc(){
+		console.log("abc");
+		move=1;
+		play=true;
+		var space1 = $("#board tr:nth-child(1) td:nth-child(1)").remove();
+		var space2 = $("#board tr:nth-child(1) td:nth-child(2)").remove();
+		var space3 = $("#board tr:nth-child(1) td:nth-child(3)").remove();
+		var space4 = $("#board tr:nth-child(2) td:nth-child(1)").remove();
+		var space5 = $("#board tr:nth-child(2) td:nth-child(2)").remove();
+		var space6 = $("#board tr:nth-child(2) td:nth-child(3)").remove();
+		var space7 = $("#board tr:nth-child(3) td:nth-child(1)").remove();
+		var space8 = $("#board tr:nth-child(3) td:nth-child(2)").remove();
+		var space9 = $("#board tr:nth-child(3) td:nth-child(3)").remove();
 	}
 
 });
